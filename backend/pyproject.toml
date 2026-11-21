@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-rag-backend"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
+  "httpx>=0.27,<1",
+  "pydantic-settings>=2.6,<3",
+  "psycopg[binary,pool]>=3.2,<4",
+  "pgvector>=0.3,<1",
+  "numpy>=1.26,<3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+ingest = ["pypdf>=5,<7", "python-docx>=1.2,<2", "beautifulsoup4>=4.12,<5",
+          "tokenizers>=0.21,<1", "huggingface-hub>=0.27,<2"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+app = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

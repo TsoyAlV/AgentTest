@@ -1,0 +1,18 @@
+collection = "local-data"
+root = "app/data"
+chunk_tokens = 500
+overlap_tokens = 80
+embedding_batch_size = 16
+file_workers = 2
+max_file_mb = 200
+tokenizer_model = "BAAI/bge-m3"
+tokenizer_revision = "5617a9f61b028005a4858fdac845db406aefb181"
+tokenizer_cache = ".cache/tokenizer"
+# Bump this when replacing embedding weights or quantization under the same API model ID.
+embedding_profile = "lmstudio-bge-m3-568m-v1"
+doc_converter_image = "rag-doc-converter:local"
+
+[folders]
+employee = ["employee"]
+"писатель" = ["писатель", "employee"]
+example_of_chats = ["chatter", "писатель", "employee"]
